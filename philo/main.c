@@ -6,7 +6,7 @@
 /*   By: ibougajd <ibougajd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 06:21:51 by ibougajd          #+#    #+#             */
-/*   Updated: 2024/08/20 03:40:59 by ibougajd         ###   ########.fr       */
+/*   Updated: 2024/08/20 06:56:44 by ibougajd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	main(int ac, char **av)
 	if (initialize_data(data, number_of_philosophers, av) == 1)
 		return (1);
 	initialize_mutexes(data, number_of_philosophers);
+	initialize_mutexes_2(data, number_of_philosophers);
 	create_and_join_threads(data, number_of_philosophers);
 	free_and_destroy_data(data, number_of_philosophers);
 }

@@ -6,7 +6,7 @@
 /*   By: ibougajd <ibougajd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 19:17:13 by ibougajd          #+#    #+#             */
-/*   Updated: 2024/08/18 21:05:34 by ibougajd         ###   ########.fr       */
+/*   Updated: 2024/08/21 01:41:21 by ibougajd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,9 @@ void	free_and_destroy_data(t_data *data, int n)
 		pthread_mutex_destroy(&data[i].kla_mutex);
 		i++;
 	}
+	pthread_mutex_destroy(data[0].mutex_0);
+	pthread_mutex_destroy(data[0].mutex_1);
+	pthread_mutex_destroy(data[0].mutex_2);
+	pthread_mutex_destroy(data[0].mutex_3);
 	free(data);
 }

@@ -6,7 +6,7 @@
 /*   By: ibougajd <ibougajd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 19:11:18 by ibougajd          #+#    #+#             */
-/*   Updated: 2024/08/20 03:40:33 by ibougajd         ###   ########.fr       */
+/*   Updated: 2024/08/20 06:57:58 by ibougajd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,25 @@ void	initialize_mutexes(t_data *data, int number_of_philosophers)
 	{
 		data[i].left_fork = &data[i].forks;
 		data[i].right_fork = &data[(i + 1) % number_of_philosophers].forks;
+		i++;
+	}
+}
+
+void	initialize_mutexes_2(t_data *data, int number_of_philosophers)
+{
+	static pthread_mutex_t	mutex_0 = PTHREAD_MUTEX_INITIALIZER;
+	static pthread_mutex_t	mutex_1 = PTHREAD_MUTEX_INITIALIZER;
+	static pthread_mutex_t	mutex_2 = PTHREAD_MUTEX_INITIALIZER;
+	static pthread_mutex_t	mutex_3 = PTHREAD_MUTEX_INITIALIZER;
+	int						i;
+
+	i = 0;
+	while (i < number_of_philosophers)
+	{
+		data[i].mutex_0 = &mutex_0;
+		data[i].mutex_1 = &mutex_1;
+		data[i].mutex_2 = &mutex_2;
+		data[i].mutex_3 = &mutex_3;
 		i++;
 	}
 }

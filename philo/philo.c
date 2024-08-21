@@ -6,7 +6,7 @@
 /*   By: ibougajd <ibougajd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 19:21:01 by ibougajd          #+#    #+#             */
-/*   Updated: 2024/08/20 03:39:28 by ibougajd         ###   ########.fr       */
+/*   Updated: 2024/08/21 01:43:21 by ibougajd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	take_left_fork_first(t_data *data)
 	if (take_left_fork(data, 0))
 		return (1);
 	if (data->n_of_philos == 1)
-		return (1);
+		return (pthread_mutex_unlock(data->left_fork), 1);
 	if (take_right_fork(data, 1))
 		return (1);
 	return (0);

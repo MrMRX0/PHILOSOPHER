@@ -1,6 +1,6 @@
 NAME = philo
 CC = gcc
-CFLAGS = -Wall -Wextra -pthread
+CFLAGS = -Wall -Wextra -Werror -pthread
 SOURCE_FILES = philo.c monitor.c routine.c time.c main.c create_join_threads.c free_destroy_data.c initialize_data.c 
 OBJECT_FILES = $(SOURCE_FILES:.c=.o)
 

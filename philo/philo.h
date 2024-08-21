@@ -6,7 +6,7 @@
 /*   By: ibougajd <ibougajd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 17:04:25 by ibougajd          #+#    #+#             */
-/*   Updated: 2024/08/20 03:40:46 by ibougajd         ###   ########.fr       */
+/*   Updated: 2024/08/21 01:13:24 by ibougajd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@ typedef struct t_list
 	pthread_mutex_t	flag_mutex;
 	pthread_mutex_t	curent_mutex;
 	pthread_mutex_t	kla_mutex;
+	pthread_mutex_t	*mutex_0;
+	pthread_mutex_t	*mutex_1;
+	pthread_mutex_t	*mutex_2;
+	pthread_mutex_t	*mutex_3;
 	int				id;
 	long			last_meal;
 	int				time_to_die;
@@ -67,5 +71,6 @@ void	put_down_forks(t_data *data);
 int		initialize_data(t_data *data, int number_of_philosophers, char **av);
 void	initialize_mutexes(t_data *data, int number_of_philosophers);
 void	create_and_join_threads(t_data *data, int number_of_philosophers);
+void	initialize_mutexes_2(t_data *data, int number_of_philosophers);
 void	free_and_destroy_data(t_data *data, int n);
 void	*action_function(void *arg);
